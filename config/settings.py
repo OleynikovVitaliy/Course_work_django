@@ -14,10 +14,10 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -42,9 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blogs',
-    'client',
-    'mailing',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +81,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Course_work-django',
+        'NAME': 'Course_work_django',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
@@ -140,31 +137,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AUTH_USER_MODEL = 'users.User'
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/users/'
-
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
-SERVER_EMAIL = EMAIL_HOST_USER
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-CACHE_ENABLED = os.getenv('CACHE_ENABLED') == 'True'
-
-if CACHE_ENABLED:
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": os.getenv('CACHE_LOCATION'),
-            "TIMEOUT": 60,
-        }
-    }
-
-CRONJOBS = [
-    ('*/5 * * * *', 'myapp.cron.my_scheduled_job')
-]
+# AUTH_USER_MODEL = 'users.User'
+# LOGOUT_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = '/users/'
+#
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = False
+# SERVER_EMAIL = EMAIL_HOST_USER
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#
+# CACHE_ENABLED = os.getenv('CACHE_ENABLED') == 'True'
+#
+# if CACHE_ENABLED:
+#     CACHES = {
+#         "default": {
+#             "BACKEND": "django.core.cache.backends.redis.RedisCache",
+#             "LOCATION": os.getenv('CACHE_LOCATION'),
+#             "TIMEOUT": 60,
+#         }
+#     }
+#
+# CRONJOBS = [
+#     ('*/5 * * * *', 'myapp.cron.my_scheduled_job')
+# ]
