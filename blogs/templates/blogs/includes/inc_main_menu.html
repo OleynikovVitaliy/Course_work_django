@@ -1,0 +1,18 @@
+{% block content %}
+<div class="col-sm-12 offset-md-1 py-4">
+    <h4 class="text-black">МЕНЮ</h4>
+        <div class="col-12 mb-3">
+        <a href="/" class="btn btn-outline-primary">Главная</a>
+        <a href="{% url 'client:client_list' %}" class="btn btn-outline-primary">Клиенты</a>
+        <a href="{% url 'mailing:list' %}" class="btn btn-outline-primary">Рассылки</a>
+        <a href="{% url 'blogs:blogs' %}" class="text-white">Блоги</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'users:profile' %}" class="text-white">Профиль</a>
+            <a href="{% url 'users:logout' %}" class="text-white">Выход</a>
+        {% else %}
+            <a href="{% url 'users:register' %}" class="text-white">Регистрация</a>
+            <a href="{% url 'users:login' %}" class="text-white">Войти</a>
+        {% endif %}
+        </div>
+</div>
+{% endblock %}
