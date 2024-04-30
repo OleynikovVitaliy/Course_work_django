@@ -1,13 +1,6 @@
-from datetime import datetime
-
-import pytz
-import smtplib
-from django.conf import settings
-from django.core.mail import send_mail
 from django.core.management import BaseCommand
 
-from client.models import Client
-from mailing.models import Mailing, Log
+from mailing.models import Mailing
 
 
 class Command(BaseCommand):
@@ -16,4 +9,4 @@ class Command(BaseCommand):
     """
 
     def handle(self, *args, **options):
-        mailings = Mailing.objects.filter(status=2)
+        Mailing.objects.filter(status=2)

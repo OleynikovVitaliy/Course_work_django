@@ -49,7 +49,7 @@ class Command(BaseCommand):
             {'first_name': 'Сергей', 'last_name': 'Сергеев', 'email': 'user2@mail.ru'},
             {'first_name': 'Андрей', 'last_name': 'Андреев', 'email': 'user3@mail.ru'},
             {'first_name': 'Василий', 'last_name': 'Васильев', 'email': 'user4@mail.ru'},
-            {'first_name': 'Виталий', 'last_name': 'Олейников', 'email': 'Oleinikov.Vialik@mail.ru'},
+            {'first_name': 'Виталий', 'last_name': 'Олейников', 'email': 'Oleinikov.Vitalik@yandex.ru.ru'},
         ]
         client_for_create = []
 
