@@ -31,7 +31,7 @@ class RegisterView(CreateView):
         if form.is_valid():
             verified_password = ''
             for i in range(8):
-                rand_idx = random.randint(0, len(list)-1)
+                rand_idx = random.randint(0, len(list) - 1)
                 verified_password += str(rand_idx)
 
             form.verified_password = verified_password

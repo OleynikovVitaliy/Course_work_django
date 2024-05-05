@@ -1,3 +1,5 @@
+import typing
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
@@ -13,10 +15,10 @@ class BlogCreateView(CreateView):
     form_class = BlogForm
     success_url = reverse_lazy('blogs:blogs')
 
-    def form_valid(self, form):
-        mailing = form.save()
-        mailing.user = self.request.user
-        mailing.save()
+    def form_valid(self, form: typing.Any) -> typing.Any:
+        self.object = form.save()
+        self.object.owner = self.request.user
+        self.object.save()
         return super().form_valid(form)
 
 

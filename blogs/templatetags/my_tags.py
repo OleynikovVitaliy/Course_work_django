@@ -7,7 +7,6 @@ register = template.Library()
 def my_media(val):
     if val:
         return f'/media/{val}'
-
     return '#'
 
 
@@ -15,5 +14,4 @@ def my_media(val):
 def my_media(val):
     if val:
         return f'/media/{val}'
-
     return '#'

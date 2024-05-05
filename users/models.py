@@ -15,6 +15,5 @@ class User(AbstractUser):
     verified = models.BooleanField(default=False, verbose_name='верифицирован', blank=True)
     verified_password = models.IntegerField(verbose_name='ключ для верификации', **NULLABLE)
 
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

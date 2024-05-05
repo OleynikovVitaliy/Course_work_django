@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import _locale
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'users',
     'mailing',
     'client',
+    'django_apscheduler',
 
 ]
 
@@ -118,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -166,6 +167,7 @@ if CACHE_ENABLED:
         }
     }
 
-CRONJOBS = [
-    ('*/5 * * * *', 'myapp.cron.my_scheduled_job')
-]
+APSCHEDULER_DATETIME_FORMAT = "d/m/Y, H:i"
+APSCHEDULER_RUN_NOW_TIMEOUT = 15  # Seconds
+
+_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
